@@ -20,6 +20,10 @@
 {
     self = [super init];
     if (self) {
+        s = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+        si.sin_family = AF_INET;
+        si.sin_port = htons(54127);
+        inet_aton("172.22.0.12", &si.sin_addr);
         [self setColor:[NSColor colorWithCalibratedRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
     }
     
@@ -40,11 +44,6 @@
     color[1] = (green * 255.0);
     color[2] = (blue * 255.0);
     
-    struct sockaddr_in si;
-    int s = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-    si.sin_family = AF_INET;
-    si.sin_port = htons(54127);
-    inet_aton("172.22.0.12", &si.sin_addr);
     sendto(s, color, 3, 0, &si, sizeof(si));
 }
 

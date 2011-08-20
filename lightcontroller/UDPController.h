@@ -15,3 +15,5 @@
 
 @end
 
+int s;
+struct sockaddr_in si;
