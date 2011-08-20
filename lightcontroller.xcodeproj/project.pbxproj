@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		871DE24313FF7DE800AEC3E7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871DE24213FF7DE800AEC3E7 /* Cocoa.framework */; };
+		871DE24D13FF7DE800AEC3E7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871DE24B13FF7DE800AEC3E7 /* InfoPlist.strings */; };
+		871DE24F13FF7DE800AEC3E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 871DE24E13FF7DE800AEC3E7 /* main.m */; };
+		871DE25313FF7DE800AEC3E7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 871DE25113FF7DE800AEC3E7 /* Credits.rtf */; };
+		871DE25613FF7DE800AEC3E7 /* lightcontrollerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 871DE25513FF7DE800AEC3E7 /* lightcontrollerAppDelegate.m */; };
+		871DE25913FF7DE900AEC3E7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 871DE25713FF7DE900AEC3E7 /* MainMenu.xib */; };
+		871DE26113FF7DE900AEC3E7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871DE26013FF7DE900AEC3E7 /* SenTestingKit.framework */; };
+		871DE26213FF7DE900AEC3E7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871DE24213FF7DE800AEC3E7 /* Cocoa.framework */; };
+		871DE26A13FF7DE900AEC3E7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871DE26813FF7DE900AEC3E7 /* InfoPlist.strings */; };
+		871DE26C13FF7DE900AEC3E7 /* lightcontrollerTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 871DE26B13FF7DE900AEC3E7 /* lightcontrollerTests.h */; };
+		871DE26E13FF7DE900AEC3E7 /* lightcontrollerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 871DE26D13FF7DE900AEC3E7 /* lightcontrollerTests.m */; };
+		871DE27913FF7E0B00AEC3E7 /* UDPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871DE27813FF7E0A00AEC3E7 /* UDPController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		871DE26313FF7DE900AEC3E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 871DE23513FF7DE800AEC3E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 871DE23D13FF7DE800AEC3E7;
+			remoteInfo = lightcontroller;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		871DE23E13FF7DE800AEC3E7 /* lightcontroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lightcontroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		871DE24213FF7DE800AEC3E7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		871DE24513FF7DE800AEC3E7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		871DE24613FF7DE800AEC3E7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		871DE24713FF7DE800AEC3E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		871DE24A13FF7DE800AEC3E7 /* lightcontroller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "lightcontroller-Info.plist"; sourceTree = "<group>"; };
+		871DE24C13FF7DE800AEC3E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		871DE24E13FF7DE800AEC3E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		871DE25013FF7DE800AEC3E7 /* lightcontroller-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lightcontroller-Prefix.pch"; sourceTree = "<group>"; };
+		871DE25213FF7DE800AEC3E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		871DE25413FF7DE800AEC3E7 /* lightcontrollerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lightcontrollerAppDelegate.h; sourceTree = "<group>"; };
+		871DE25513FF7DE800AEC3E7 /* lightcontrollerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lightcontrollerAppDelegate.m; sourceTree = "<group>"; };
+		871DE25813FF7DE900AEC3E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		871DE25F13FF7DE900AEC3E7 /* lightcontrollerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lightcontrollerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		871DE26013FF7DE900AEC3E7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		871DE26713FF7DE900AEC3E7 /* lightcontrollerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "lightcontrollerTests-Info.plist"; sourceTree = "<group>"; };
+		871DE26913FF7DE900AEC3E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		871DE26B13FF7DE900AEC3E7 /* lightcontrollerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lightcontrollerTests.h; sourceTree = "<group>"; };
+		871DE26D13FF7DE900AEC3E7 /* lightcontrollerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lightcontrollerTests.m; sourceTree = "<group>"; };
+		871DE27713FF7E0A00AEC3E7 /* UDPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPController.h; sourceTree = "<group>"; };
+		871DE27813FF7E0A00AEC3E7 /* UDPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		871DE23B13FF7DE800AEC3E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871DE24313FF7DE800AEC3E7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		871DE25B13FF7DE900AEC3E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871DE26113FF7DE900AEC3E7 /* SenTestingKit.framework in Frameworks */,
+				871DE26213FF7DE900AEC3E7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		871DE23313FF7DE800AEC3E7 = {
+			isa = PBXGroup;
+			children = (
+				871DE24813FF7DE800AEC3E7 /* lightcontroller */,
+				871DE26513FF7DE900AEC3E7 /* lightcontrollerTests */,
+				871DE24113FF7DE800AEC3E7 /* Frameworks */,
+				871DE23F13FF7DE800AEC3E7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		871DE23F13FF7DE800AEC3E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				871DE23E13FF7DE800AEC3E7 /* lightcontroller.app */,
+				871DE25F13FF7DE900AEC3E7 /* lightcontrollerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		871DE24113FF7DE800AEC3E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				871DE24213FF7DE800AEC3E7 /* Cocoa.framework */,
+				871DE26013FF7DE900AEC3E7 /* SenTestingKit.framework */,
+				871DE24413FF7DE800AEC3E7 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		871DE24413FF7DE800AEC3E7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				871DE24513FF7DE800AEC3E7 /* AppKit.framework */,
+				871DE24613FF7DE800AEC3E7 /* CoreData.framework */,
+				871DE24713FF7DE800AEC3E7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		871DE24813FF7DE800AEC3E7 /* lightcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				871DE25413FF7DE800AEC3E7 /* lightcontrollerAppDelegate.h */,
+				871DE25513FF7DE800AEC3E7 /* lightcontrollerAppDelegate.m */,
+				871DE25713FF7DE900AEC3E7 /* MainMenu.xib */,
+				871DE27713FF7E0A00AEC3E7 /* UDPController.h */,
+				871DE27813FF7E0A00AEC3E7 /* UDPController.m */,
+				871DE24913FF7DE800AEC3E7 /* Supporting Files */,
+			);
+			path = lightcontroller;
+			sourceTree = "<group>";
+		};
+		871DE24913FF7DE800AEC3E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				871DE24A13FF7DE800AEC3E7 /* lightcontroller-Info.plist */,
+				871DE24B13FF7DE800AEC3E7 /* InfoPlist.strings */,
+				871DE24E13FF7DE800AEC3E7 /* main.m */,
+				871DE25013FF7DE800AEC3E7 /* lightcontroller-Prefix.pch */,
+				871DE25113FF7DE800AEC3E7 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		871DE26513FF7DE900AEC3E7 /* lightcontrollerTests */ = {
+			isa = PBXGroup;
+			children = (
+				871DE26B13FF7DE900AEC3E7 /* lightcontrollerTests.h */,
+				871DE26D13FF7DE900AEC3E7 /* lightcontrollerTests.m */,
+				871DE26613FF7DE900AEC3E7 /* Supporting Files */,
+			);
+			path = lightcontrollerTests;
+			sourceTree = "<group>";
+		};
+		871DE26613FF7DE900AEC3E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				871DE26713FF7DE900AEC3E7 /* lightcontrollerTests-Info.plist */,
+				871DE26813FF7DE900AEC3E7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		871DE23D13FF7DE800AEC3E7 /* lightcontroller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 871DE27113FF7DE900AEC3E7 /* Build configuration list for PBXNativeTarget "lightcontroller" */;
+			buildPhases = (
+				871DE23A13FF7DE800AEC3E7 /* Sources */,
+				871DE23B13FF7DE800AEC3E7 /* Frameworks */,
+				871DE23C13FF7DE800AEC3E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lightcontroller;
+			productName = lightcontroller;
+			productReference = 871DE23E13FF7DE800AEC3E7 /* lightcontroller.app */;
+			productType = "com.apple.product-type.application";
+		};
+		871DE25E13FF7DE900AEC3E7 /* lightcontrollerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 871DE27413FF7DE900AEC3E7 /* Build configuration list for PBXNativeTarget "lightcontrollerTests" */;
+			buildPhases = (
+				871DE25A13FF7DE900AEC3E7 /* Sources */,
+				871DE25B13FF7DE900AEC3E7 /* Frameworks */,
+				871DE25C13FF7DE900AEC3E7 /* Resources */,
+				871DE25D13FF7DE900AEC3E7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				871DE26413FF7DE900AEC3E7 /* PBXTargetDependency */,
+			);
+			name = lightcontrollerTests;
+			productName = lightcontrollerTests;
+			productReference = 871DE25F13FF7DE900AEC3E7 /* lightcontrollerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		871DE23513FF7DE800AEC3E7 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 871DE23813FF7DE800AEC3E7 /* Build configuration list for PBXProject "lightcontroller" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 871DE23313FF7DE800AEC3E7;
+			productRefGroup = 871DE23F13FF7DE800AEC3E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				871DE23D13FF7DE800AEC3E7 /* lightcontroller */,
+				871DE25E13FF7DE900AEC3E7 /* lightcontrollerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		871DE23C13FF7DE800AEC3E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871DE24D13FF7DE800AEC3E7 /* InfoPlist.strings in Resources */,
+				871DE25313FF7DE800AEC3E7 /* Credits.rtf in Resources */,
+				871DE25913FF7DE900AEC3E7 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		871DE25C13FF7DE900AEC3E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871DE26A13FF7DE900AEC3E7 /* InfoPlist.strings in Resources */,
+				871DE26C13FF7DE900AEC3E7 /* lightcontrollerTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		871DE25D13FF7DE900AEC3E7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		871DE23A13FF7DE800AEC3E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871DE24F13FF7DE800AEC3E7 /* main.m in Sources */,
+				871DE25613FF7DE800AEC3E7 /* lightcontrollerAppDelegate.m in Sources */,
+				871DE27913FF7E0B00AEC3E7 /* UDPController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		871DE25A13FF7DE900AEC3E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871DE26E13FF7DE900AEC3E7 /* lightcontrollerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		871DE26413FF7DE900AEC3E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 871DE23D13FF7DE800AEC3E7 /* lightcontroller */;
+			targetProxy = 871DE26313FF7DE900AEC3E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		871DE24B13FF7DE800AEC3E7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				871DE24C13FF7DE800AEC3E7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		871DE25113FF7DE800AEC3E7 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				871DE25213FF7DE800AEC3E7 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		871DE25713FF7DE900AEC3E7 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				871DE25813FF7DE900AEC3E7 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		871DE26813FF7DE900AEC3E7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				871DE26913FF7DE900AEC3E7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		871DE26F13FF7DE900AEC3E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		871DE27013FF7DE900AEC3E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		871DE27213FF7DE900AEC3E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "lightcontroller/lightcontroller-Prefix.pch";
+				INFOPLIST_FILE = "lightcontroller/lightcontroller-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		871DE27313FF7DE900AEC3E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "lightcontroller/lightcontroller-Prefix.pch";
+				INFOPLIST_FILE = "lightcontroller/lightcontroller-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		871DE27513FF7DE900AEC3E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/lightcontroller.app/Contents/MacOS/lightcontroller";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "lightcontroller/lightcontroller-Prefix.pch";
+				INFOPLIST_FILE = "lightcontrollerTests/lightcontrollerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		871DE27613FF7DE900AEC3E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/lightcontroller.app/Contents/MacOS/lightcontroller";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "lightcontroller/lightcontroller-Prefix.pch";
+				INFOPLIST_FILE = "lightcontrollerTests/lightcontrollerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		871DE23813FF7DE800AEC3E7 /* Build configuration list for PBXProject "lightcontroller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				871DE26F13FF7DE900AEC3E7 /* Debug */,
+				871DE27013FF7DE900AEC3E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		871DE27113FF7DE900AEC3E7 /* Build configuration list for PBXNativeTarget "lightcontroller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				871DE27213FF7DE900AEC3E7 /* Debug */,
+				871DE27313FF7DE900AEC3E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		871DE27413FF7DE900AEC3E7 /* Build configuration list for PBXNativeTarget "lightcontrollerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				871DE27513FF7DE900AEC3E7 /* Debug */,
+				871DE27613FF7DE900AEC3E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 871DE23513FF7DE800AEC3E7 /* Project object */;
+}
