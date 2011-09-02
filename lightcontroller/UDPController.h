@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UDPController : NSObject
+@interface UDPController : NSObject {
+    NSWindow *prefsWindow;
+    NSTextField *IPAddrField;
+}
 
 - (IBAction)colorChanged:(id)sender;
 - (void)setColor:(NSColor*)thecolor;
+@property (assign) IBOutlet NSWindow *prefsWindow;
+@property (assign) IBOutlet NSTextField *IPAddrField;
 
 @end
 

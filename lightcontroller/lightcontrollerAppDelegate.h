@@ -12,6 +12,5 @@
     NSWindow *window;
 }
 
-@property (assign) IBOutlet NSWindow *window;
 
 @end
