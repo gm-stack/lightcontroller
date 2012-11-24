@@ -10,26 +10,31 @@
 // include the library code:
 #include <LiquidCrystal.h>
 
-#define LCD_RS  7
-#define LCD_RW  8
-#define LCD_D4  A0
-#define LCD_D5  A1
-#define LCD_D6  A2
-#define LCD_D7  A3
+#define BUTTON_SELECT    5
+#define BUTTON_LEFT      4
+#define BUTTON_DOWN      3
+#define BUTTON_UP        2
+#define BUTTON_RIGHT     1
+#define BUTTON_NONE      0
 
-#define BUTTON_1 2
-#define BUTTON_2 4
-#define BUTTON_3 1
+#define LCD_RS  46
+#define LCD_RW  48
 
-#define OUT_R   5
-#define OUT_G   9
-#define OUT_B   3
-#define OUT_AUX 6
+#define LCD_D4  38
+#define LCD_D5  40
+#define LCD_D6  42
+#define LCD_D7  44
+#define LCD_BL 2
+
+#define OUT_R   6
+#define OUT_G   7
+#define OUT_B   8
 
 byte redLevel = 255;
 byte greenLevel = 255;
 byte blueLevel = 255;
-byte auxLevel = 0;
+
+boolean useEthernet = true;
 
 int currentChannel = 0;
 
@@ -41,33 +46,74 @@ byte ip[] = {172,22,0,59};
 byte gateway[] = {172,22,0,1};
 byte subnet[] = {255,255,255,0};
 
-byte ircserver1[] = {172,22,0,52};
-
 EthernetUDP Udp;
 EthernetClient client;
 
+int checkButton() {
+  int ButtonVoltage = analogRead(0);
+  int ButtonPressed = BUTTON_NONE;
+  
+  if (ButtonVoltage > 800) ButtonPressed = BUTTON_NONE;    // No button pressed should be 1023
+  else if (ButtonVoltage > 500) ButtonPressed = BUTTON_SELECT;   
+  else if (ButtonVoltage > 400) ButtonPressed = BUTTON_LEFT;   
+  else if (ButtonVoltage > 250) ButtonPressed = BUTTON_DOWN;   
+  else if (ButtonVoltage > 100) ButtonPressed = BUTTON_UP; 
+  else ButtonPressed = BUTTON_RIGHT;
+  return ButtonPressed;
+}
+
 void setup() {
-  lcd.begin(20, 2);
-  pinMode(BUTTON_1, INPUT);
-  pinMode(BUTTON_2, INPUT);
-  pinMode(BUTTON_3, INPUT);
-  digitalWrite(BUTTON_1, HIGH);
-  digitalWrite(BUTTON_2, HIGH);
-  digitalWrite(BUTTON_3, HIGH);
+  lcd.begin(16, 2);
   
   pinMode(OUT_R, OUTPUT);
   pinMode(OUT_G, OUTPUT);
   pinMode(OUT_B, OUTPUT);
-  pinMode(OUT_AUX, OUTPUT);
-  Ethernet.begin(mac, ip, gateway, subnet);
-  Udp.begin(54127);
-  //client.connect(ircserver1,6667);
-  //client.print("JOIN #beepboop\n");
-  //client.print("NICK lightsbot\n");
-  //client.print("USER lightsbot lightsbot * lightsbot\n");
+   
+  pinMode(LCD_BL, OUTPUT);
+  analogWrite(LCD_BL, 255);
+
+  lcd.clear();
+  
+  if (checkButton() != BUTTON_NONE) {
+    useEthernet = false;
+  }
+  
+  if (useEthernet) {
+    lcd.print("Waiting for DHCP");
+    
+    //Ethernet.begin(mac, ip, gateway, subnet);
+    Ethernet.begin(mac);
+    
+    if (Ethernet.begin(mac) == 0) {
+      lcd.print("failed...");
+      for(;;) {};
+    }
+    lcd.clear();
+    lcd.print(Ethernet.localIP()[0], DEC);
+    lcd.print("."); 
+    lcd.print(Ethernet.localIP()[1], DEC);
+    lcd.print(".");
+    lcd.print(Ethernet.localIP()[2], DEC);
+    lcd.print(".");
+    lcd.print(Ethernet.localIP()[3], DEC);
+    lcd.setCursor(0,1);
+    lcd.print("press any key");
+    
+    long pressTime = millis();
+    
+    while (checkButton() == BUTTON_NONE && (millis() - pressTime) < 5000 ) {
+      lcd.setCursor(14,1);
+      lcd.print(5-((millis() - pressTime) / 1000));
+    };
+    Udp.begin(54127);
+  }
+  
+
 }
 
 long lastUpdateTime = 0;
+long dimTime = 0;
+int brightness = 255;
 
 void updateLCD() {
   if ((millis() - lastUpdateTime) < 100) return;
@@ -92,43 +138,52 @@ void updateLCD() {
   lcd.setCursor(14,0);
   (currentChannel == 2) ? lcd.print(">") : lcd.print(" ");
   
-  lcd.setCursor(15,0);
-  (currentChannel == 3) ? lcd.print("<") : lcd.print(" ");
-  lcd.print(auxLevel);
-  lcd.setCursor(19,0);
-  (currentChannel == 3) ? lcd.print(">") : lcd.print(" ");
-  
   lcd.setCursor(1,1);
   lcd.print("R");
   lcd.setCursor(6,1);
   lcd.print("G");
   lcd.setCursor(11,1);
   lcd.print("B");
-  lcd.setCursor(16,1);
-  lcd.print("X");
   
   analogWrite(OUT_R, redLevel);
   analogWrite(OUT_G, greenLevel);
   analogWrite(OUT_B, blueLevel);
-  analogWrite(OUT_AUX, auxLevel);
+  
+}
+
+void fullBright() {
+    dimTime = millis() + 4000;
+    brightness = 255;
+    analogWrite(LCD_BL, brightness);
 }
 
 void loop() {
-  int packetLen = Udp.parsePacket();
-  if (packetLen == 3) {
-    redLevel = Udp.read();
-    greenLevel = Udp.read();
-    blueLevel = Udp.read();
+  if (useEthernet) {
+    int packetLen = Udp.parsePacket();
+    if (packetLen == 3) {
+      redLevel = Udp.read();
+      greenLevel = Udp.read();
+      blueLevel = Udp.read();
+    }
   }
 
   //lcd.write(client.read());
   updateLCD();
-  if (!digitalRead(BUTTON_2)) {
-    (currentChannel < 3) ? currentChannel++ : currentChannel = 0;
-    while (!digitalRead(BUTTON_2)) { delay(10);};
+  
+  if (checkButton() == BUTTON_LEFT) {
+    (currentChannel > 0) ? currentChannel-- : currentChannel = 2;
+    fullBright();
+    while (checkButton() != BUTTON_NONE) { delay(10);};
   }
   
-  if (!digitalRead(BUTTON_1)) {
+  if (checkButton() == BUTTON_RIGHT) {
+    (currentChannel < 2) ? currentChannel++ : currentChannel = 0;
+    fullBright();
+    while (checkButton() != BUTTON_NONE) { delay(10);};
+  }
+  
+  if (checkButton() == BUTTON_DOWN) {
+    fullBright();
     switch(currentChannel) {
       case 0:
         (redLevel > 4) ? redLevel -= 5 : redLevel = 0;
@@ -142,16 +197,13 @@ void loop() {
         (blueLevel > 4) ? blueLevel -= 5 : blueLevel = 0;
         analogWrite(OUT_B, blueLevel);
         break;
-      case 3:
-        (auxLevel > 4) ? auxLevel -= 5 : auxLevel = 0;
-        analogWrite(OUT_AUX, auxLevel);
-        break;
     }
     unsigned long pushTime = millis();
-    while (!digitalRead(BUTTON_1) && ((millis() - pushTime) < 50 )) { delay(10);};
+    while ((checkButton() != BUTTON_NONE) && ((millis() - pushTime) < 50 )) { delay(10);};
   }
   
-  if (!digitalRead(BUTTON_3)) {
+  if (checkButton() == BUTTON_UP) {
+    fullBright();
     switch(currentChannel) {
       case 0:
         (redLevel < 251) ? redLevel += 5 : redLevel = 255;
@@ -165,14 +217,14 @@ void loop() {
         (blueLevel < 251) ? blueLevel += 5 : blueLevel = 255;
         analogWrite(OUT_B, blueLevel);
         break;
-      case 3:
-        (auxLevel < 251) ? auxLevel += 5 : auxLevel = 255;
-        analogWrite(OUT_AUX, auxLevel);
-        break;
     }
     unsigned long pushTime = millis();
-    while (!digitalRead(BUTTON_3) && ((millis() - pushTime) < 50 )) { delay(10);};
+    while ((checkButton() != BUTTON_NONE) && ((millis() - pushTime) < 50 )) { delay(10);};
   }
   
+  if ((millis() > dimTime) && brightness > 10) {
+      brightness--;
+      analogWrite(LCD_BL, brightness);
+  }
 }
 
